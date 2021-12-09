@@ -2,7 +2,7 @@
 
 # Create variables
 WORK_DIR=/home/rstudio/analyse_mobilite_rp2018
-REPO_URL=https://github.com/fBedecarrats/analyse_mobilite_rp2018
+REPO_URL=https://github.com/jgsco/analyse_mobilite_rp2018
 DATA_DIR=${WORK_DIR}/data
 DOC_DIR=${WORK_DIR}/documentation
 
