@@ -1,0 +1,74 @@
+---
+title: "Analyse des trajets domicile-travail en 2018"
+author: "Florent Bédécarrats (Nantes Métropole)"
+date: "22/09/2021"
+output: html_document
+---
+
+
+# Session 1
+
+## Présentation de l'interface 
+https://juba.github.io/tidyverse/02-prise_en_main.html
+
+
+## Présentation des sources
+Intercommunalités : https://www.insee.fr/fr/information/2510634
+Communes : https://www.insee.fr/fr/information/5057840
+Flux : https://www.insee.fr/fr/statistiques/5395749?sommaire=5395764
+
+
+## Import de données
+
+=======
+# Import de fichiers
+https://juba.github.io/tidyverse/07-import.html
+
+```{r}
+library(readr)
+library(readxl)
+
+varmod <- read_delim("data/Varmod_MOBPRO_2018.csv", delim = ";")
+flux <- read_delim("data/FD_MOBPRO_2018.csv", delim = ";", 
+                   escape_double = FALSE, 
+                   trim_ws = TRUE,
+                   col_types = cols(DCFLT = col_character(),
+                                    REGLT = col_character()))
+EPCI_FR <- read_excel("data/Intercommunalite-Metropole_au_01-01-2021.xlsx", 
+    sheet = "Composition_communale", skip = 5)
+
+
+```
+
+
+
+## Session 2 GIT et collaboration sur SSP Cloud
+
+Rappel
+- la console
+- Les vecteurs
+- Les imports
+https://juba.github.io/tidyverse/02-prise_en_main.html
+
+GITer des résultats
+
+# Session 3 Manipuler les données
+
+Raffraichir les mises à jour du répo principal.
+Fonctions
+Filtrer les données 
+
+Filtrage des données : 
+
+```{r}
+
+library(tidyverse)
+
+comNM <- filter(EPCI_FR, LIBEPCI == "Nantes Métropole") %>% pull(CODGEO)
+
+fluxNM <- filter(flux, COMMUNE %in% comNM | DCLT %in% comNM)
+
+
+```
+
+
