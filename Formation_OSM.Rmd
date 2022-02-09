@@ -1,0 +1,52 @@
+---
+title: "Formation Geo OSM"
+author: "jgs"
+date: "09/02/2022"
+output: html_document
+---
+
+# Formation
+https://rcarto.github.io/carto_avec_r/index.html
+
+# Ressources osmdata
+https://docs.ropensci.org/osmdata/index.html
+
+
+```{r}
+# import des livrairies, y compris installation du package si non existant
+library(sf)
+install.packages("osmdata")
+library(osmdata)
+library(sf)
+
+
+```
+
+Essai sur la ville de Nantes
+
+```{r}
+# Définition d'une bounding box
+
+mybb <- opq(getbb('Nantes'))
+
+# Extraction de la frontière administrative
+res <- add_osm_feature(opq = mybb, key = 'boundary', value = 'administrative')
+res.sf <- osmdata_sf(res)
+
+res.sf.polygons <- res.sf$osm_polygons
+nantes <- st_transform(res.sf.polygons)
+plot(st_geometry(nantes))
+
+
+res.sf.mpolygons <- res.sf$osm_multipolygons
+nantesmp <- st_transform(res.sf.mpolygons)
+plot(st_geometry(nantesmp))
+
+
+
+
+
+
+
+```
+

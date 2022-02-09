@@ -1,0 +1,38 @@
+---
+title: "Formation géo"
+output: html_document
+---
+
+# Formation R & Geo
+# https://rcarto.github.io/carto_avec_r/index.html
+
+# 
+
+```{r}
+library(sf)
+
+# Import du package de donnée de la martinique
+install.packages("cartography")
+library(cartography)
+library(sf)
+
+# Import du fichier shp de la Martinique
+mtq <- st_read(system.file("gpkg/mtq.gpkg", package="cartography"), quiet = TRUE)
+
+# Export de mtq dans le dossier data
+
+st_write(obj = mtq, dsn = "data1/mtq.gpkg", layer= "mtq", delete_layer = TRUE)
+
+
+```
+
+## Affichage de la carte !
+
+```{r}
+plot(mtq)
+
+```
+
+
+
+

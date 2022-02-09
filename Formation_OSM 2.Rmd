@@ -1,0 +1,51 @@
+---
+title: "formation osm 2"
+author: "jgs"
+date: "09/02/2022"
+output: html_document
+---
+
+2nd essai osm
+http://rstudio-pubs-static.s3.amazonaws.com/27280_def6bb23c960465089fead1b8dcdada6.html
+
+
+Cartographie automatique de zones d’urgence avec R
+Robin Cura - UMR Géographie-cités
+27/08/2014
+
+
+
+```{r}
+# import des livrairies, y compris installation du package si non existant
+library(sf)
+install.packages("osmdata")
+library(osmdata)
+library(sf)
+
+
+```
+
+Essai sur la ville de Nantes
+ 
+ 
+```{r}
+# Définition d'une bounding box
+
+# on retrouve la BB à partir de https://boundingbox.klokantech.com/
+
+mybb <- c(-1.64181153,47.18058552,-1.47884436,47.29585823)
+
+# On charge le package
+install.packages("ggmap")
+library(ggplot2)
+library(ggmap)
+
+# On récupère la carte OSM d'après la variable d'emprise (bbox_Tamatave)
+# Ici, on choisit le fond de carte "Toner-lite" de Stamen (nécessite ggmap >= 2.4)
+fondDeCarte <- ggmap(
+  get_map(location = mybb, maptype = 'toner-lite', source = 'stamen'),
+  extent = 'device')
+
+fondDeCarte
+
+```
