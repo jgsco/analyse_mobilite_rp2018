@@ -1,0 +1,36 @@
+---
+title: "Formation géo"
+output: html_document
+---
+
+# Formation R & Geo
+# https://rcarto.github.io/carto_avec_r/index.html
+
+# 
+
+```{r}
+library(sf)
+
+# Import du package de donnée de la martinique
+install.packages("cartography")
+library(cartography)
+library(sf)
+
+# Import du fichier shp des EPCI 44
+COMMUNES_SHP <-  st_read("data/COMMUNE.shp", drivers="ESRI Shapefile")
+
+COMMUNES_SHP_NM <- COMMUNES_SHP %>%
+  filter(INSEE_COM %in% communes_NM$CODGEO)
+
+```
+
+## Affichage de la carte !
+
+```{r}
+plot(COMMUNES_SHP_NM)
+
+```
+
+
+
+

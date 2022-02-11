@@ -30,8 +30,13 @@ chown -R rstudio:users $DATA_DIR
 #wget https://www.insee.fr/fr/statistiques/fichier/5395749/contenu_RP2018_mobpro.pdf
 
 # copy files from S3 : Back !
+# INSEE Censu
 mc cp s3/fbedecarrats/diffusion/{FD_MOBPRO_2018.csv,commune2021.csv,Intercommunalite-Metropole_au_01-01-2021.xlsx,Varmod_MOBPRO_2018.csv} $DATA_DIR
 mc cp s3/fbedecarrats/diffusion/contenu_RP2018_mobpro.pdf $DOC_DIR
+
+# GIS files IGN BDTOPO Loire Atlantique
+mc cp s3/jscouarnec/BDTOPO/Aministratif/{COMMUNE.shp,COMMUNE.shx,EPCI.shp,EPCI.shx} $DATA_DIR
+
 
 # launch RStudio in the right project
 # Copied from InseeLab UtilitR

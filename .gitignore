@@ -2,6 +2,6 @@
 .Rhistory
 .RData
 .Ruserdata
-data/.*
-*.Rmd
+data/
+documentation/
 !Sessions_precedentes.Rmd
