@@ -24,8 +24,9 @@ chown -R rstudio:users $DATA_DIR
 #unzip RP2018_mobpro_csv.zip
 #unzip Intercommunalite_Metropole_au_01-01-2018.zip
 
-#mkdir $DOC_DIR
-#chown -R rstudio:users $DOC_DIR
+mkdir $DOC_DIR
+chown -R rstudio:users $DOC_DIR
+
 #cd $DOC_DIR
 #wget https://www.insee.fr/fr/statistiques/fichier/5395749/contenu_RP2018_mobpro.pdf
 
@@ -35,7 +36,7 @@ mc cp s3/fbedecarrats/diffusion/{FD_MOBPRO_2018.csv,commune2021.csv,Intercommuna
 mc cp s3/fbedecarrats/diffusion/contenu_RP2018_mobpro.pdf $DOC_DIR
 
 # GIS files IGN BDTOPO Loire Atlantique
-mc cp s3/jscouarnec/BDTOPO/Aministratif/{COMMUNE.shp,COMMUNE.shx,EPCI.shp,EPCI.shx} $DATA_DIR
+mc cp s3/jscouarnec/BDTOPO/Administratif/{COMMUNE.shp,COMMUNE.shx,EPCI.shp,EPCI.shx} $DATA_DIR
 
 
 # launch RStudio in the right project
