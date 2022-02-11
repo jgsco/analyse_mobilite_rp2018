@@ -14,7 +14,7 @@ flux <- read_delim("data/FD_MOBPRO_2018.csv", # le fichier INSEE
                    col_types = cols(DCFLT = col_character(),
                                     REGLT = col_character()))
 
-EPCI_FR <- read_excel("data/Intercommunalite_Metropole_au_01-01-2018.xls", 
+EPCI_FR <- read_excel("data/Intercommunalite-Metropole_au_01-01-2021.xlsx", 
                       sheet = "Composition_communale", skip = 5)
 
 # Cette fonction liste les code communes correspondant à une intercommunalité

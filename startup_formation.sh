@@ -36,7 +36,7 @@ mc cp s3/fbedecarrats/diffusion/{FD_MOBPRO_2018.csv,commune2021.csv,Intercommuna
 mc cp s3/fbedecarrats/diffusion/contenu_RP2018_mobpro.pdf $DOC_DIR
 
 # GIS files IGN BDTOPO Loire Atlantique
-mc cp s3/jscouarnec/BDTOPO/Administratif/{COMMUNE.shp,COMMUNE.shx,EPCI.shp,EPCI.shx} $DATA_DIR
+mc cp s3/jscouarnec/BDTOPO/Administratif/{COMMUNE.shp,COMMUNE.shx,COMMUNE.dbf,EPCI.shp,EPCI.shx,EPCI.dbf} $DATA_DIR
 
 
 # launch RStudio in the right project
