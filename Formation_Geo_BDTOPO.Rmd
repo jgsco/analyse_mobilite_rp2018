@@ -9,6 +9,7 @@ output: html_document
 # 
 
 ```{r}
+library(tidyverse)
 library(sf)
 
 # Import du package de donnée de la martinique
@@ -16,11 +17,16 @@ install.packages("cartography")
 library(cartography)
 library(sf)
 
-# Import du fichier shp des EPCI 44
+# Import du fichier shp des communes  44 et EPCI
 COMMUNES_SHP <-  st_read("data/COMMUNE.shp", drivers="ESRI Shapefile")
+EPCI_SHP <- st_read("data/EPCI.shp")
+
+# Recherche du code de la Métropole
+
+SIREN_NM <- filter(EPCI_SHP, NOM == "Nantes Métropole") %>% pull(CODE_SIREN)
 
 COMMUNES_SHP_NM <- COMMUNES_SHP %>%
-  filter(INSEE_COM %in% communes_NM$CODGEO)
+  filter(SIREN_EPCI == SIREN_NM)
 
 ```
 
